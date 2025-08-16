@@ -19,7 +19,6 @@ async function runGame() {
 
 function displayCountry() {
   document.getElementById("feedbackMessage").innerHTML = "";
-  document.getElementById("answer-box").value = "";
   document.getElementById("answer-box").disabled = true;
   let countryData = pickCountry();
   let imageFilePath = "assets/images/" + countryData[1].toLowerCase() + ".png"
@@ -27,6 +26,7 @@ function displayCountry() {
   document.getElementById("flag-image").src = imageFilePath;
   document.getElementById("answer").innerText = countryData[0];
   document.getElementById("answer-box").disabled = false;
+  document.getElementById("answer-box").value = "";
   document.getElementById("answer-box").focus();
   console.log(countryData[0]);
 }
