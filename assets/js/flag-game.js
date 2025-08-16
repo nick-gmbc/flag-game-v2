@@ -42,10 +42,31 @@ function checkAnswer() {
   else {
     document.getElementById("feedbackMessage").innerHTML = "Incorrect.  The correct answer is " + correctAnswer;
   }
+  
+  // Ask another question, but only if less than 10 asked
+  // if 10 asked give feedback
   incrementQuestionsAnswered();
-  setTimeout("displayCountry()", 3000);
+  let numberOfQs = parseInt(document.getElementById("questionsAnswered").innerText);
+  if (numberOfQs < 10) {
+    setTimeout("displayCountry()", 3000);
+  } else {
+    setTimeout("endOfGameFeedback()", 3000);
+  }
 }
 
+function endOfGameFeedback() {
+  document.getElementById("answer-box").disabled = true;
+  let message = "Game over<br>";
+  let numberOfCorrectQs = parseInt(document.getElementById("questionsCorrect").innerText);
+  if (numberOfCorrectQs >= 8) {
+    message += "Flat genius";
+  } else if (numberOfCorrectQs >= 3) {
+    message += "OK, some of the flags were quite obscure";
+  } else {
+    message += "Don't want you my my team";
+  }
+  document.getElementById("feedbackMessage").innerHTML = message;
+}
 
 function incrementQuestionsAnswered() {
   let numberOfQs = parseInt(document.getElementById("questionsAnswered").innerText);

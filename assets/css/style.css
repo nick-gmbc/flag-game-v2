@@ -1,0 +1,21 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: bisque;
+}
+
+img {
+    border: 5px solid #555;
+}
+@media only screen and (max-width: 450px) {
+    .image-size {
+        width: 100%
+    }
+}
+
+@media only screen and (min-width: 451px) {
+    .image-size {
+        width: 450px;
+        max-height: 250px;
+        min-height: 250px;
+    }
+}
