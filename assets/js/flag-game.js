@@ -42,6 +42,12 @@ function checkAnswer() {
   displayCountry();
 }
 
+function incrementQuestionsAnswered() {
+  let numberOfQs = parseInt(document.getElementById("questionsAnswered").innerText);
+  numberOfQs = numberOfQs + 1;
+  document.getElementById("questionsAnswered").innerText = numberOfQs;
+}
+
 function randomBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
