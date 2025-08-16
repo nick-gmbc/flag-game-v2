@@ -18,6 +18,7 @@ async function runGame() {
 }
 
 function displayCountry() {
+  document.getElementById("feedbackMessage").innerHTML = "";
   document.getElementById("answer-box").value = "";
   document.getElementById("answer-box").disabled = true;
   let countryData = pickCountry();
@@ -26,6 +27,7 @@ function displayCountry() {
   document.getElementById("flag-image").src = imageFilePath;
   document.getElementById("answer").innerText = countryData[0];
   document.getElementById("answer-box").disabled = false;
+  document.getElementById("answer-box").focus();
   console.log(countryData[0]);
 }
 
@@ -34,15 +36,16 @@ function checkAnswer() {
   let correctAnswer = document.getElementById("answer").innerText;
   console.log(playerAnswer, correctAnswer);
   if (playerAnswer === correctAnswer) {
-    alert("Correct");
+    document.getElementById("feedbackMessage").innerHTML = "Correct";
     incrementCorrectQuestionsAnswered();
   }
   else {
-    alert("Incorrect.  The correct answer is " + correctAnswer);
+    document.getElementById("feedbackMessage").innerHTML = "Incorrect.  The correct answer is " + correctAnswer;
   }
   incrementQuestionsAnswered();
-  displayCountry();
+  setTimeout("displayCountry()", 3000);
 }
+
 
 function incrementQuestionsAnswered() {
   let numberOfQs = parseInt(document.getElementById("questionsAnswered").innerText);
