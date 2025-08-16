@@ -35,10 +35,12 @@ function checkAnswer() {
   console.log(playerAnswer, correctAnswer);
   if (playerAnswer === correctAnswer) {
     alert("Correct");
+    incrementCorrectQuestionsAnswered();
   }
   else {
     alert("Incorrect.  The correct answer is " + correctAnswer);
   }
+  incrementQuestionsAnswered();
   displayCountry();
 }
 
@@ -48,12 +50,20 @@ function incrementQuestionsAnswered() {
   document.getElementById("questionsAnswered").innerText = numberOfQs;
 }
 
+// 
+
+function incrementCorrectQuestionsAnswered() {
+  let numberOfCorrectQs = parseInt(document.getElementById("questionsCorrect").innerText);
+  numberOfCorrectQs = numberOfCorrectQs + 1;
+  document.getElementById("questionsCorrect").innerText = numberOfCorrectQs;
+}
+
 function randomBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function pickCountry() {
-  let countryNumber = randomBetween(0, flagGameState.countryName.length);
+  let countryNumber = randomBetween(0, flagGameState.countryName.length - 1);
   return [flagGameState.countryName[countryNumber], flagGameState.countryCode[countryNumber] ];
 }
 
