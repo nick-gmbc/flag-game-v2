@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
             checkAnswer();
         }
     })
+    document.getElementById("new-game").addEventListener("click", startNewGame);
     runGame();
 })
 
@@ -66,6 +67,11 @@ function endOfGameFeedback() {
     message += "Don't want you my my team";
   }
   document.getElementById("feedbackMessage").innerHTML = message;
+  document.getElementById("new-game").style.display = "block";
+}
+
+function startNewGame() {
+
 }
 
 function incrementQuestionsAnswered() {
