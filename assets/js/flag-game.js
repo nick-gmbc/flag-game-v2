@@ -60,7 +60,7 @@ function endOfGameFeedback() {
   let message = "Game over<br>";
   let numberOfCorrectQs = parseInt(document.getElementById("questionsCorrect").innerText);
   if (numberOfCorrectQs >= 8) {
-    message += "Flat genius";
+    message += "Flag genius";
   } else if (numberOfCorrectQs >= 3) {
     message += "OK, some of the flags were quite obscure";
   } else {
@@ -71,7 +71,10 @@ function endOfGameFeedback() {
 }
 
 function startNewGame() {
-
+  document.getElementById("new-game").style.display = "none";
+  document.getElementById("questionsCorrect").innerText = "0";
+  document.getElementById("questionsAnswered").innerText = "0";
+  displayCountry();
 }
 
 function incrementQuestionsAnswered() {
